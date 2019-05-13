@@ -1,0 +1,92 @@
+﻿<html ng-app="MyfirstApp">
+
+<head>
+    <script src="angular.min.js"></script>
+    <script src="Script1.js"></script>
+    <script src="filter.js"></script>
+</head>
+     
+<body >
+    <div ng-controller="nameOfController">
+    <div>
+        "{{ emp.naame }}" , 
+        "{{ emp.designation }}" , 
+        "{{emp.DOJ}}" 
+    </div>
+    <br />
+    <div>
+        <img src="{{logos.img}}" alt="{{logos.company}}" style= "height : 200px; width : 400px"/>
+        </div>
+   
+    <div>
+        <table>
+
+            <tr>
+                <td>Name:</td>
+                <td><input type="text" ng-model="emp.naame" /></td>
+
+
+            </tr>
+            <tr>
+                <td>Designation : </td>
+                <td><input type="text" ng-model="emp.designation" /></td>
+
+
+
+            </tr>
+        </table>
+        <br />
+        <div>
+        <table>
+            <input type="text" placeholder="Search by BRAND OR type" ng-model="Searchcars" />
+       <thead>
+                <tr>
+                    <th>Brand</th>
+                    <th>Name </th>
+                    <th>Type</th>
+
+
+                </tr>
+            </thead>
+       <tbody>
+           <tr ng-repeat="car in cars | filter: carsFilter">
+               <td>{{car.name}}</td>
+               <td>{{car.brand}}</td>
+               <td>{{car.type}}</td>
+
+
+
+           </tr>
+
+       </tbody>
+
+        </table>
+
+        <table>
+            <thead>
+            <tr>Name</tr>
+                <tr>Number of Employees</tr>
+                <tr>Status</tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="company in companies">
+                    <td>{{company.name}}</td>
+                    <td>{{company.noOfEmployees}}</td>
+                    <td>{{company.type | companies}}</td>
+
+
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+        </div>
+
+        </div>
+
+</body>
+
+
+
+
+</html>
